@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff1f5">
+    <meta name="description" content="Create a personal romantic surprise for someone special.">
+    <title>Our Sweet Little Journey ♡ | its_TIE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="floating-decor" id="floatingDecor" aria-hidden="true">
+        <span>♡</span><span>🌸</span><span>💕</span><span>✿</span>
+        <span>💗</span><span>🌷</span><span>✨</span><span>♥</span>
+    </div>
+
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="Our Sweet Little Journey home">
+            <span class="brand-icon">♡</span>
+            <span>Our Sweet Little Journey</span>
+        </a>
+
+        <div class="topbar-actions">
+            <label class="language-control" for="languageSelect">
+                <span id="languageLabel">Language</span>
+                <select id="languageSelect" aria-label="Choose language">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="bl">Banglish</option>
+                </select>
+            </label>
+
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between dark and light mode"
+                title="Dark / Light mode">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-shell">
+
+        <!-- 1. Welcome -->
+        <section class="screen active" id="welcomeScreen">
+            <div class="hero-card content-card">
+                <div class="hero-decoration" aria-hidden="true">💗</div>
+                <p class="eyebrow" data-i18n="welcomeEyebrow">A LITTLE WORLD MADE WITH LOVE</p>
+                <h1 data-i18n="welcomeTitle">Every love story deserves a little magic.</h1>
+                <p class="hero-description" data-i18n="welcomeDescription">
+                    Create a personal surprise filled with memories, music, heartfelt words and little moments of magic.
+                </p>
+
+                <div class="hero-tags">
+                    <span>♡ Love</span>
+                    <span>✿ Memories</span>
+                    <span>✨ Surprises</span>
+                </div>
+
+                <button class="primary-button" id="startButton" type="button" data-i18n="startButton">
+                    Create Your Surprise <span>→</span>
+                </button>
+
+                <p class="signature">Made with love by <strong>its_TIE</strong> ♡</p>
+            </div>
+        </section>
+
+        <!-- 2. Choose creator or receiver -->
+        <section class="screen" id="modeScreen">
+            <div class="content-card">
+                <p class="eyebrow">YOUR LITTLE JOURNEY</p>
+                <h2 data-i18n="modeTitle">What would you like to do?</h2>
+                <p data-i18n="modeDescription">Create a new surprise or open one made especially for you.</p>
+
+                <div class="choice-grid">
+                    <button class="choice-card" id="creatorModeButton" type="button">
+                        <span class="choice-icon">💌</span>
+                        <strong data-i18n="creatorMode">Create a Surprise</strong>
+                        <span data-i18n="creatorModeDescription">Make something personal for someone special.</span>
+                    </button>
+
+                    <button class="choice-card" id="receiverModeButton" type="button">
+                        <span class="choice-icon">🎁</span>
+                        <strong data-i18n="receiverMode">Open a Surprise</strong>
+                        <span data-i18n="receiverModeDescription">Enjoy a surprise made just for you.</span>
+                    </button>
+                </div>
+
+                <button class="text-button" type="button" data-back="welcomeScreen">← Back</button>
+                <p class="signature">its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 3. Customize -->
+        <section class="screen" id="setupScreen">
+            <div class="content-card">
+                <p class="eyebrow">MAKE IT YOURS ✨</p>
+                <h2 data-i18n="setupTitle">Create your own love story</h2>
+                <p data-i18n="setupDescription">Every detail can be personal. Choose what feels right for you.</p>
+
+                <form id="surpriseForm">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="creatorName" data-i18n="creatorNameLabel">Your name</label>
+                            <input id="creatorName" name="creatorName" type="text" maxlength="60"
+                                placeholder="Your name" autocomplete="name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="receiverName" data-i18n="receiverNameLabel">Their name</label>
+                            <input id="receiverName" name="receiverName" type="text" maxlength="60"
+                                placeholder="Someone special" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="occasionType">Choose your surprise</label>
+                            <select id="occasionType" name="occasionType" required>
+                                <option value="anniversary">💞 Anniversary / Relationship</option>
+                                <option value="proposal">💍 Proposal / Marriage Proposal</option>
+                                <option value="confession">💌 Love Confession / Crush</option>
+                                <option value="justbecause">🫶 Just Because</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="relationshipType">Your relationship</label>
+                            <select id="relationshipType" name="relationshipType">
+                                <option value="partner">Partner</option>
+                                <option value="crush">Crush</option>
+                                <option value="boyfriend">Boyfriend</option>
+                                <option value="girlfriend">Girlfriend</option>
+                                <option value="spouse">Husband / Wife</option>
+                                <option value="other">Someone special</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field" id="dateField">
+                            <label for="anniversaryDate">Your special date (optional)</label>
+                            <input id="anniversaryDate" name="anniversaryDate" type="date">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="surpriseTitle">Surprise title (optional)</label>
+                            <input id="surpriseTitle" name="surpriseTitle" type="text" maxlength="100"
+                                placeholder="Our little universe ♡">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="loveMessage" data-i18n="messageLabel">Your personal message</label>
+                        <textarea id="loveMessage" name="loveMessage" rows="4" maxlength="2000"
+                            placeholder="Write something from your heart..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="songFile">🎵 Add your own song (optional)</label>
+                        <input id="songFile" name="songFile" type="file" accept="audio/*">
+                        <small>Your selected song works on this device. Online sharing needs hosted audio.</small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="photoFiles">📸 Add photos (optional)</label>
+                        <input id="photoFiles" name="photoFiles" type="file" accept="image/*" multiple>
+                        <div class="media-preview" id="photoPreview"></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="videoFiles">🎬 Add videos (optional)</label>
+                        <input id="videoFiles" name="videoFiles" type="file" accept="video/*" multiple>
+                        <div class="media-preview" id="videoPreview"></div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="decorFiles">🌷 Add flowers, hearts or decorative images (optional)</label>
+                        <input id="decorFiles" name="decorFiles" type="file" accept="image/*" multiple>
+                        <div class="media-preview" id="decorPreview"></div>
+                    </div>
+
+                    <div class="form-field music-options">
+                        <label class="toggle-row" for="autoplayMusic">
+                            <span>🎶 Try to start music automatically</span>
+                            <input id="autoplayMusic" name="autoplayMusic" type="checkbox" checked>
+                        </label>
+                        <small>Browsers may require the receiver to tap Play before music starts.</small>
+                    </div>
+
+                    <div class="form-field">
+                        <label class="toggle-row" for="floatingEffects">
+                            <span>💗 Floating hearts and flower effects</span>
+                            <input id="floatingEffects" name="floatingEffects" type="checkbox" checked>
+                        </label>
+                    </div>
+
+                    <button class="primary-button full-button" id="createSurprise" type="submit">
+                        Continue to Our Surprise →
+                    </button>
+                </form>
+
+                <button class="text-button" type="button" data-back="modeScreen">← Back</button>
+                <p class="signature">its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 4. Milestone / relationship counter -->
+        <section class="screen" id="milestoneScreen">
+            <div class="content-card">
+                <p class="eyebrow">EVERY SECOND MATTERS ♡</p>
+                <h2 id="coupleHeading">Your little forever</h2>
+                <p id="milestoneTitle">Every moment with you is special.</p>
+                <p id="milestoneMessage">Here is to all the memories you have made together.</p>
+
+                <div class="counter-grid" aria-label="Relationship duration">
+                    <div class="counter-item"><strong id="yearsCount">0</strong><span>Years</span></div>
+                    <div class="counter-item"><strong id="monthsCount">0</strong><span>Months</span></div>
+                    <div class="counter-item"><strong id="daysCount">0</strong><span>Days</span></div>
+                    <div class="counter-item"><strong id="hoursCount">0</strong><span>Hours</span></div>
+                    <div class="counter-item"><strong id="minutesCount">0</strong><span>Minutes</span></div>
+                    <div class="counter-item"><strong id="secondsCount">0</strong><span>Seconds</span></div>
+                </div>
+
+                <div class="music-player">
+                    <span class="music-icon">🎵</span>
+                    <div class="music-info">
+                        <strong>Our Little Love Song</strong>
+                        <span>Background music</span>
+                    </div>
+                    <button id="musicButton" class="round-button" type="button"
+                        aria-label="Play or pause music">▶</button>
+                </div>
+
+                <audio id="backgroundMusic" loop preload="none"></audio>
+
+                <button class="primary-button full-button" id="continueToHearts" type="button">
+                    Continue to Your Surprise ♡
+                </button>
+
+                <button class="text-button" type="button" data-back="setupScreen">← Back</button>
+                <p class="signature">A little world made by its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 5. Interactive heart surprise -->
+        <section class="screen" id="heartsScreen">
+            <div class="content-card">
+                <p class="eyebrow">A LITTLE GAME FOR YOU 💗</p>
+                <h2>Choose a little heart</h2>
+                <p>Every heart holds a little surprise. Tap one to reveal it.</p>
+
+                <div class="heart-grid">
+                    <button type="button" class="heart-choice" data-surprise="letter"
+                        aria-label="Reveal a love letter">💌</button>
+                    <button type="button" class="heart-choice" data-surprise="compliment"
+                        aria-label="Reveal a compliment">💗</button>
+                    <button type="button" class="heart-choice" data-surprise="question"
+                        aria-label="Reveal a question">💝</button>
+                </div>
+
+                <div class="reveal-card" id="heartReveal" aria-live="polite">
+                    <h3 id="revealTitle">A secret is waiting...</h3>
+                    <p id="revealMessage">Choose one of the hearts above.</p>
+                </div>
+
+                <button class="primary-button full-button" id="continueToMemories" type="button">
+                    Explore Our Memories →
+                </button>
+                <button class="text-button" type="button" data-back="milestoneScreen">← Back</button>
+                <p class="signature">its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 6. Photos and videos -->
+        <section class="screen" id="memoriesScreen">
+            <div class="content-card">
+                <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES 🌷</p>
+                <h2>Our memory garden</h2>
+                <p>Photos, videos and little things that make your story unique.</p>
+
+                <div class="memory-gallery" id="memoryGallery">
+                    <div class="empty-gallery">
+                        <span>🌸</span>
+                        <p>Your memories will appear here.</p>
+                    </div>
+                </div>
+
+                <button class="primary-button full-button" id="continueToGift" type="button">
+                    Open Your Little Gift 🎁
+                </button>
+                <button class="text-button" type="button" data-back="heartsScreen">← Back</button>
+                <p class="signature">its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 7. Final gift -->
+        <section class="screen" id="giftScreen">
+            <div class="content-card gift-card">
+                <p class="eyebrow">MADE JUST FOR YOU 💗</p>
+                <h2 id="finalGreeting">One last little surprise...</h2>
+                <p id="finalMessage">There is something special waiting for you.</p>
+
+                <button id="giftBoxButton" class="gift-box-button" type="button" aria-label="Open the surprise gift">
+                    <span>🎁</span>
+                    <small>Tap to open</small>
+                </button>
+
+                <div id="finalReveal" class="final-reveal" aria-live="polite" hidden>
+                    <div class="final-hearts">💗 🌸 💗</div>
+                    <h3>A little promise from the heart</h3>
+                    <p id="finalNote">You make ordinary moments feel extraordinary.</p>
+                    <p class="signature">Forever a little more magical with you — its_TIE ♡</p>
+                </div>
+
+                <button class="primary-button full-button" id="restartButton" type="button">
+                    Start Again ↻
+                </button>
+                <button class="text-button" type="button" data-back="memoriesScreen">← Back</button>
+            </div>
+        </section>
+
+        <!-- 8. Generate link only after the surprise is complete -->
+        <section class="screen" id="shareScreen">
+            <div class="content-card">
+                <p class="eyebrow">YOUR SURPRISE IS READY ✨</p>
+                <h2>Your little surprise is complete!</h2>
+                <p>Generate your personalized link at the end, then copy and send it to someone special.</p>
+
+                <div class="share-preview">
+                    <span class="share-preview-icon">💌</span>
+                    <h3 id="shareHeading">A surprise made with love</h3>
+                    <p id="shareDescription">A little moment made especially for someone special.</p>
+                </div>
+
+                <button class="primary-button full-button" id="generateLinkButton" type="button">
+                    Generate Surprise Link 🔗
+                </button>
+
+                <div id="shareLinkArea" class="share-link-area" hidden>
+                    <label for="shareLink">Your personalized link</label>
+                    <input id="shareLink" type="url" readonly>
+                    <button class="secondary-button full-button" id="copyLinkButton" type="button">Copy Link</button>
+                    <p id="copyStatus" role="status" aria-live="polite"></p>
+                    <button class="secondary-button full-button" id="previewSurpriseButton" type="button">Preview
+                        Surprise</button>
+                </div>
+
+                <p class="privacy-note">
+                    Note: photos, videos and local music need online hosting to be available to the receiver on another
+                    device.
+                </p>
+
+                <button class="text-button" type="button" data-back="giftScreen">← Back</button>
+                <p class="signature">Created with love by its_TIE ♡</p>
+            </div>
+        </section>
+
+        <!-- 9. Local dashboard -->
+        <section class="screen" id="dashboardScreen">
+            <div class="content-card">
+                <p class="eyebrow">YOUR LITTLE DASHBOARD</p>
+                <h2>Your surprise activity</h2>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <span>🎁</span>
+                        <strong id="completionCount">0</strong>
+                        <small>Surprises completed on this browser</small>
+                    </div>
+                    <div class="stat-card">
+                        <span>👥</span>
+                        <strong id="visitorCount">1</strong>
+                        <small>Local browser estimate</small>
+                    </div>
+                </div>
+
+                <p id="dashboardInfo" class="dashboard-info">
+                    These are local browser figures, not a global live user count.
+                </p>
+
+                <button class="secondary-button full-button" id="backToShare" type="button">Back to your
+                    surprise</button>
+                <p class="signature">its_TIE ♡</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Made with a little love, a little magic, and a lot of heart. ♡</p>
+        <p>its_TIE · Our Sweet Little Journey</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
